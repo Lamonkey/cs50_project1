@@ -5,11 +5,16 @@
 {% endblock %}
 
 {% block body %}
+
     <h1>All Pages</h1>
 
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li>
+            <li><a href="{% url 'Wiki:entryPage' entry %}"> {{ entry }}</a> 
+            <form action="{%url 'Wiki:edit' entry%}">
+            <button class="btn-primary"}>Edit</button> 
+            </form>
+            </li>
         {% endfor %}
     </ul>
 
